@@ -1,0 +1,98 @@
+{
+  "title": "親指シフト",
+  "rules": [
+    {
+      "description": "親指シフト",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {"key_code": "japanese_eisuu"},
+          "to": [{"key_code": "right_control"}]
+        },
+        {
+          "type": "basic",
+          "from": {"key_code": "japanese_kana"},
+          "to": [ { "key_code": "right_command" } ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "return_or_enter",
+            "modifiers": {
+              "mandatory": [
+                "right_command"
+              ]
+            }
+          },
+          "to": [ { "key_code": "japanese_eisuu" } ],
+          "conditions": [
+            {
+              "type": "input_source_if",
+              "input_sources": [ { "language": "ja" } ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "return_or_enter",
+            "modifiers": {
+              "mandatory": [
+                "right_command"
+              ]
+            }
+          },
+          "to": [ { "key_code": "japanese_kana" } ],
+          "conditions": [
+            {
+              "type": "input_source_if",
+              "input_sources": [ { "language": "en" } ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "commnt_": "お",
+          "from": {
+            "simultaneous": [
+              { "key_code": "right_command" },
+              { "key_code": "j" }
+            ],
+            "modifiers": {
+              "optional": [ "any" ]
+            }
+          },
+          "to": [ { "key_code": "o" } ],
+          "conditions": [
+            {
+              "type": "input_source_if",
+              "input_sources": [ { "language": "ja" } ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "commnt_": "と",
+          "from": {
+            "simultaneous": [
+              { "key_code": "j" }
+            ],
+            "modifiers": {
+              "optional": [ "any" ]
+            }
+          },
+          "to": [
+            { "key_code": "t" },
+            { "key_code": "o" }
+          ],
+          "conditions": [
+            {
+              "type": "input_source_if",
+              "input_sources": [ { "language": "ja" } ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
